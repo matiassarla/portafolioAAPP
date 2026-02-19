@@ -1,0 +1,151 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(90deg,rgba(0, 66, 219, 1) 0%, rgba(0, 155, 219, 1) 50%, rgba(0, 197, 219, 1) 100%);
+    width: 100%;
+}
+
+.header {
+    width: 100%;
+    padding: 15px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.header div {
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 15px;
+}
+
+img, button {
+    vertical-align: middle;
+}
+
+.grupo {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.logoAAPP img, .logoAAPP button {
+    height: 50px;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.verGrupos img {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    height: 50px;
+    max-height: 35px;
+    width: 28px;
+}
+
+.pestanas {
+    width: 100%;
+    padding: 15px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.pestanas a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: 0 10px;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box;
+    border: 1px solid white;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+}
+
+.pestanas a:hover {
+    background: linear-gradient(90deg,rgba(0, 66, 219, 0.5) 0%, rgba(0, 155, 219, 0.5) 50%, rgba(0, 197, 219, 0.5) 100%);
+    transform: translateY(-5px) scale(1.05);
+}
+
+
+.pestanas a:first-child {
+    margin-left: 0;
+}
+
+.pestanas a:last-child {
+    margin-right: 0;
+}
+
+.tabla-estudiantes {
+    border-collapse: collapse;
+    margin: 0 15px;
+    width: calc(100% - 30px);
+    border: 2px solid white;
+    color: white;
+}
+
+.tabla-estudiantes th {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px 15px;
+    border: 2px solid white;
+}
+
+.tabla-estudiantes tbody td {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    text-align: center;
+    font-weight: normal;
+    padding: 15px;
+    border: 2px solid white;
+}
+
+.tabla-estudiantes th:first-child,
+.tabla-estudiantes td:first-child {
+    width: 80px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0;
+}
+
+.foto-estudiante {
+    max-height: 80px;
+    object-fit: cover;
+}
+
+.tabla-estudiantes tbody tr {
+    height: 80px;
+    vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 10px;
+        font-size: 12px;
+    }
+    .grupo {
+        font-size: 14px;
+    }
+}
+
+.foto-estudiante:hover {
+    transform: scale(2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
