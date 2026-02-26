@@ -79,7 +79,7 @@ function mostrarTabla() {
     const numero = String(index + 1).padStart(2, "0");
 
     agregarImagen(fila, estudiante.foto);
-    agregarCelda(fila, `${numero} - ${estudiante.nombres} ${estudiante.apellidos}`);
+    agregarCelda(fila, `${numero} - ${estudiante.apellidos}, ${estudiante.nombres}`);
     agregarCelda(fila, estudiante.asistencias);
     agregarCelda(fila, estudiante.primeraReunion);
     agregarCelda(fila, estudiante.juicioPrimera);

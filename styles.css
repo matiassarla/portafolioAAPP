@@ -4,7 +4,7 @@
 
 body {
     margin: 0;
-    background: linear-gradient(90deg,rgba(0, 66, 219, 1) 0%, rgba(0, 155, 219, 1) 50%, rgba(0, 197, 219, 1) 100%);
+    background: linear-gradient(90deg, rgba(0, 66, 219, 1) 0%, rgba(0, 155, 219, 1) 50%, rgba(0, 197, 219, 1) 100%);
     width: 100%;
 }
 
@@ -24,7 +24,8 @@ body {
     padding-right: 15px;
 }
 
-img, button {
+img,
+button {
     vertical-align: middle;
 }
 
@@ -33,7 +34,8 @@ img, button {
     font-weight: bold;
 }
 
-.logoAAPP img, .logoAAPP button {
+.logoAAPP img,
+.logoAAPP button {
     height: 50px;
     width: auto;
     margin: 0;
@@ -76,8 +78,8 @@ img, button {
 }
 
 .pestanas a:hover {
-    background: linear-gradient(90deg,rgba(0, 66, 219, 0.5) 0%, rgba(0, 155, 219, 0.5) 50%, rgba(0, 197, 219, 0.5) 100%);
-    transform: translateY(-5px) scale(1.05);
+    background: linear-gradient(90deg, rgba(0, 66, 219, 0.5) 0%, rgba(0, 155, 219, 0.5) 50%, rgba(0, 197, 219, 0.5) 100%);
+    transform: scale(1.08);
 }
 
 
@@ -89,8 +91,15 @@ img, button {
     margin-right: 0;
 }
 
+#calificaciones:active {
+    background-color: rgba(64, 10, 212, 0.747);
+    font-size: 20px;
+}
+
 #contenedorTabla {
+    padding-bottom: 15px;
     overflow-x: auto;
+    overflow-y: visible;
 }
 
 .tabla-estudiantes {
@@ -119,6 +128,11 @@ img, button {
     border: 2px solid white;
 }
 
+.tabla-estudiantes tbody tr {
+    height: 80px;
+    vertical-align: middle;
+}
+
 .tabla-estudiantes th:first-child,
 .tabla-estudiantes td:first-child {
     width: 80px;
@@ -132,9 +146,11 @@ img, button {
     object-fit: cover;
 }
 
-.tabla-estudiantes tbody tr {
-    height: 80px;
-    vertical-align: middle;
+.foto-estudiante:hover {
+    transform: scale(2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 768px) {
@@ -142,14 +158,12 @@ img, button {
         padding: 10px;
         font-size: 12px;
     }
+
     .grupo {
         font-size: 14px;
     }
-}
 
-.foto-estudiante:hover {
-    transform: scale(2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-radius: 50%;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    .foto-estudiante {
+        object-fit: cover;
+    }
 }
