@@ -89,6 +89,10 @@ img, button {
     margin-right: 0;
 }
 
+#contenedorTabla {
+    overflow-x: auto;
+}
+
 .tabla-estudiantes {
     border-collapse: collapse;
     margin: 0 15px;
