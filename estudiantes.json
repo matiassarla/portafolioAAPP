@@ -13,7 +13,37 @@
         "foto": "images/mariaGomez.jpg",
         "nombres": "María",
         "apellidos": "Gómez",
-        "asistencias": 4,
+        "asistencias": 0,
+        "primeraReunion": "No",
+        "juicioPrimera": "Regular",
+        "segundaReunion": "Sí",
+        "juicioSegunda": "Bueno"
+    },
+    {
+        "foto": "images/carlosRodriguez.jpg",
+        "nombres": "Carlos",
+        "apellidos": "Rodríguez",
+        "asistencias": 3,
+        "primeraReunion": "Sí",
+        "juicioPrimera": "Regular",
+        "segundaReunion": "Sí",
+        "juicioSegunda": "Regular"
+    },
+    {
+        "foto": "images/juanPerez.jpg",
+        "nombres": "Juan",
+        "apellidos": "Pérez",
+        "asistencias": 5,
+        "primeraReunion": "Sí",
+        "juicioPrimera": "Bueno",
+        "segundaReunion": "No",
+        "juicioSegunda": "Regular"
+    },
+    {
+        "foto": "images/mariaGomez.jpg",
+        "nombres": "María",
+        "apellidos": "Gómez",
+        "asistencias": 2,
         "primeraReunion": "No",
         "juicioPrimera": "Regular",
         "segundaReunion": "Sí",

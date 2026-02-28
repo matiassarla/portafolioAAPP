@@ -58,7 +58,7 @@ button {
     padding: 10px;
     position: absolute;
     right: 60px;
-    top: 30px;
+    top: 20px;
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
     /* height: 50px; */
@@ -71,7 +71,7 @@ button {
     transition: 0.3s ease, transform 0.2s ease;
     display: inline-block;
     font-weight: bold;
-    vertical-align: middle;
+    /* vertical-align: middle; */
     color: white;
 }
 
@@ -133,29 +133,12 @@ button {
     overflow-y: visible;
 }
 
-/* Ocultar columna 4 por defecto */
-.tabla-estudiantes th:nth-child(4),
-.tabla-estudiantes td:nth-child(4) {
-  display: none;
-}
-
 .tabla-estudiantes {
     border-collapse: collapse;
-    margin: 0 15px;
+    margin: 0 auto;
     width: calc(100% - 30px);
     border: 2px solid white;
     color: white;
-}
-
-.modo-lista th:nth-child(4),
-.modo-lista td:nth-child(4) {
-  display: table-cell;
-}
-
-/* Ocultar columnas 5 en adelante */
-.modo-lista th:nth-child(n+5),
-.modo-lista td:nth-child(n+5) {
-  display: none;
 }
 
 .tabla-estudiantes th {
@@ -189,19 +172,55 @@ button {
     padding: 0;
 }
 
+.tabla-estudiantes th:nth-child(2),
+.tabla-estudiantes td:nth-child(2),
+.tabla-estudiantes th:nth-child(4),
+.tabla-estudiantes td:nth-child(4) {
+    width: 300px;
+    text-align: center;
+}
+
+.tabla-estudiantes th:nth-child(3),
+.tabla-estudiantes td:nth-child(3) {
+    width: 150px;
+    text-align: center;
+}
+
+/* Ocultar columna 4 por defecto */
+.tabla-estudiantes th:nth-child(4),
+.tabla-estudiantes td:nth-child(4) {
+    display: none;
+}
+
+.modo-lista th:nth-child(4),
+.modo-lista td:nth-child(4) {
+    display: table-cell;
+}
+
+.tabla-estudiantes.modo-lista {
+    width: 530px;
+    /* width: fit-content; */
+}
+
+/* Ocultar columnas 5 en adelante */
+.modo-lista th:nth-child(n+5),
+.modo-lista td:nth-child(n+5) {
+    display: none;
+}
+
 .foto-estudiante {
-    max-height: 80px;
+    max-height: 97px;
     object-fit: cover;
 }
 
 .foto-estudiante:hover {
-    transform: scale(2);
+    transform: scale(1.7);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border-radius: 50%;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1025px) {
     .header {
         padding: 10px;
         font-size: 12px;
@@ -211,7 +230,75 @@ button {
         font-size: 14px;
     }
 
+    .tabla-estudiantes {
+        margin: 0 15px;
+        width: calc(100% - 30px);
+    }
+
+    .tabla-estudiantes th:nth-child(2),
+    .tabla-estudiantes td:nth-child(2),
+    .tabla-estudiantes th:nth-child(4),
+    .tabla-estudiantes td:nth-child(4) {
+        width: 150px;
+        text-align: center;
+    }
+
     .foto-estudiante {
+        height: 95px;
+        width: 80px;
         object-fit: cover;
+    }
+
+    .verGrupos {
+        display: none;
+    }
+
+    #btn-lista {
+        padding: 5px;
+        top: 15px;
+    }
+
+    .header div {
+        display: block;
+        padding-right: 0;
+    }
+
+    .header div {
+        padding-right: 0px;
+    }
+
+    .logoAAPP img,
+    .logoAAPP button {
+        height: 50px;
+        padding-bottom: 5px;
+    }
+
+    .pestanas {
+        align-items: center;
+        display: flex;
+        overflow-x: auto;
+        padding: 5px;
+    }
+
+    .pestanas a {
+        margin: 5px;
+        padding: 10px;
+    }
+
+    .pestanas a:first-child {
+        margin: 5px;
+    }
+
+    .pestanas a:last-child {
+        margin-right: 0;
+    }
+
+    .pestanas a:active {
+        margin: 5px;
+        transform: none;
+    }
+
+    .tabla-estudiantes tbody td {
+        height: 80px;
     }
 }
