@@ -19,6 +19,16 @@ function iniciarApp() {
   mostrarTabla();
 }
 
+const enlaces = document.querySelectorAll(".pestanas a");
+
+enlaces.forEach(enlace => {
+  const archivoActual = window.location.pathname.split("/").pop();
+
+  if (enlace.getAttribute("href") === archivoActual) {
+    enlace.classList.add("activo");
+  }
+});
+
 const contenedor = document.getElementById("contenedorTabla");
 
 const tabla = document.createElement("table");
@@ -36,17 +46,37 @@ tabla.appendChild(tbody);
 const filaEncabezados = document.createElement("tr");
 thead.appendChild(filaEncabezados);
 
-const encabezados = ["Foto", "Nombre", "Asistencias", "Primera reunión", "Juicio de la primera reunión", "Segunda reunión", "Juicio de la segunda reunión"];
+const encabezados = ["Foto", "Nombre", "Asistencias", "Pasaje de lista", "Primera reunión", "Juicio de la primera reunión", "Segunda reunión", "Juicio de la segunda reunión"];
 
-encabezados.forEach(encabezado => {
+encabezados.forEach((encabezado, index) => {
   const celda = document.createElement("th");
   celda.textContent = encabezado;
+
+  if (index === 3) {
+    celda.classList.add("col-lista");
+  }
+
+  if (index >= 4) {
+    celda.classList.add("col-reunion");
+  }
+
   filaEncabezados.appendChild(celda);
 });
 
-function agregarCelda(fila, texto) {
+function agregarCelda(fila, texto, indiceColumna) {
   const celda = document.createElement("td");
   celda.textContent = texto;
+
+  // Columna 3 → Pasaje de lista
+  if (indiceColumna === 3) {
+    celda.classList.add("col-lista");
+  }
+
+  // Columna 4 en adelante → Reuniones
+  if (indiceColumna >= 4) {
+    celda.classList.add("col-reunion");
+  }
+
   fila.appendChild(celda);
 }
 
@@ -79,15 +109,28 @@ function mostrarTabla() {
     const numero = String(index + 1).padStart(2, "0");
 
     agregarImagen(fila, estudiante.foto);
-    agregarCelda(fila, `${numero} - ${estudiante.apellidos}, ${estudiante.nombres}`);
-    agregarCelda(fila, estudiante.asistencias);
-    agregarCelda(fila, estudiante.primeraReunion);
-    agregarCelda(fila, estudiante.juicioPrimera);
-    agregarCelda(fila, estudiante.segundaReunion);
-    agregarCelda(fila, estudiante.juicioSegunda);
+    agregarCelda(fila, `${numero} - ${estudiante.apellidos}, ${estudiante.nombres}`, 1);
+    agregarCelda(fila, estudiante.asistencias, 2);
+    agregarCelda(fila, "", 3); // 👈 Pasaje de lista (vacío por defecto)
+    agregarCelda(fila, estudiante.primeraReunion, 4);
+    agregarCelda(fila, estudiante.juicioPrimera, 5);
+    agregarCelda(fila, estudiante.segundaReunion, 6);
+    agregarCelda(fila, estudiante.juicioSegunda, 7);
 
     tbody.appendChild(fila);
   });
 }
 
 cargarEstudiantes();
+
+const boton = document.getElementById("btn-lista");
+
+boton.addEventListener("click", () => {
+  document.querySelector("table").classList.toggle("modo-lista");
+
+  if (document.querySelector("table").classList.contains("modo-lista")) {
+    boton.textContent = "Ver reuniones";
+  } else {
+    boton.textContent = "Pasaje de Lista";
+  }
+});

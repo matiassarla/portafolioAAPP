@@ -54,6 +54,31 @@ button {
     width: 28px;
 }
 
+#btn-lista {
+    padding: 10px;
+    position: absolute;
+    right: 60px;
+    top: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    /* height: 50px; */
+    /* max-height: 35px; */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.199);
+    box-sizing: border-box;
+    border: 1px solid white;
+    border-radius: 10px;
+    transition: 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+    font-weight: bold;
+    vertical-align: middle;
+    color: white;
+}
+
+#btn-lista:hover {
+    cursor: pointer;
+}
+
 .pestanas {
     width: 100%;
     padding: 15px;
@@ -70,18 +95,24 @@ button {
     padding: 10px 20px;
     border-radius: 10px;
     margin: 0 10px;
-    transition: background-color 0.3s ease;
+    /* transition: background-color 0.3s ease; */
     box-sizing: border-box;
     border: 1px solid white;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: 0.3s ease, transform 0.2s ease;
     display: inline-block;
 }
 
 .pestanas a:hover {
     background: linear-gradient(90deg, rgba(0, 66, 219, 0.5) 0%, rgba(0, 155, 219, 0.5) 50%, rgba(0, 197, 219, 0.5) 100%);
-    transform: scale(1.08);
+    transform: scale(1.04);
 }
 
+.pestanas a.activo {
+    background: linear-gradient(90deg, rgba(0, 66, 219, 0.5) 0%, rgba(0, 155, 219, 0.5) 50%, rgba(0, 197, 219, 0.5) 100%);
+    color: white;
+    font-weight: bold;
+    transform: scale(1.08);
+}
 
 .pestanas a:first-child {
     margin-left: 0;
@@ -102,12 +133,29 @@ button {
     overflow-y: visible;
 }
 
+/* Ocultar columna 4 por defecto */
+.tabla-estudiantes th:nth-child(4),
+.tabla-estudiantes td:nth-child(4) {
+  display: none;
+}
+
 .tabla-estudiantes {
     border-collapse: collapse;
     margin: 0 15px;
     width: calc(100% - 30px);
     border: 2px solid white;
     color: white;
+}
+
+.modo-lista th:nth-child(4),
+.modo-lista td:nth-child(4) {
+  display: table-cell;
+}
+
+/* Ocultar columnas 5 en adelante */
+.modo-lista th:nth-child(n+5),
+.modo-lista td:nth-child(n+5) {
+  display: none;
 }
 
 .tabla-estudiantes th {
