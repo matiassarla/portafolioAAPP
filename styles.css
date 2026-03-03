@@ -220,6 +220,57 @@ button {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
+#panel-lista {
+    display: none;
+}
+
+#panel-lista.visible {
+    display: flex;
+    gap: 10px;
+    justify-self: center;
+    /* align-items: center; */
+    margin-bottom: 15px;
+}
+
+#panel-lista input[type="date"] {
+    padding: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.199);
+    box-sizing: border-box;
+    border: 1px solid white;
+    border-radius: 10px;
+    color: white;
+}
+
+#panel-lista button {
+    padding: 8px 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.199);
+    box-sizing: border-box;
+    border: 1px solid white;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.5);
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+#btn-guardar {
+  transition: 
+    background-color 0.4s ease,
+    transform 0.2s ease,
+    box-shadow 0.3s ease;
+}
+
 @media (max-width: 1025px) {
     .header {
         padding: 10px;

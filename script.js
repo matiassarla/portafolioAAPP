@@ -1,9 +1,32 @@
+let fechaActual;
+
+const inputFecha = document.getElementById("input-fecha");
+
+// Usa formato local compatible con input type="date"
+const fechaLocal = new Date().toLocaleDateString("en-CA");
+
+inputFecha.value = fechaLocal;
+fechaActual = fechaLocal;
+
+function calcularAsistencias(estudiante) {
+  return Object.values(estudiante.registros)
+    .filter(valor => valor === true)
+    .length;
+}
+
 let estudiantes = [];
 
 async function cargarEstudiantes() {
   try {
-    const response = await fetch("estudiantes.json");
-    estudiantes = await response.json();
+    const datosGuardados = localStorage.getItem("estudiantes");
+
+    if (datosGuardados) {
+      estudiantes = JSON.parse(datosGuardados);
+    } else {
+      const response = await fetch("estudiantes.json");
+      estudiantes = await response.json();
+      localStorage.setItem("estudiantes", JSON.stringify(estudiantes));
+    }
 
     estudiantes.sort((a, b) =>
       a.apellidos.localeCompare(b.apellidos)
@@ -110,15 +133,62 @@ function mostrarTabla() {
 
     agregarImagen(fila, estudiante.foto);
     agregarCelda(fila, `${numero} - ${estudiante.apellidos}, ${estudiante.nombres}`, 1);
-    agregarCelda(fila, estudiante.asistencias, 2);
-    agregarCelda(fila, "", 3); // 👈 Pasaje de lista (vacío por defecto)
+    agregarCelda(fila, calcularAsistencias(estudiante), 2);
+    const celdaLista = document.createElement("td");
+    celdaLista.classList.add("col-lista");
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+
+    celdaLista.appendChild(checkbox);
+    fila.appendChild(celdaLista);
     agregarCelda(fila, estudiante.primeraReunion, 4);
     agregarCelda(fila, estudiante.juicioPrimera, 5);
     agregarCelda(fila, estudiante.segundaReunion, 6);
     agregarCelda(fila, estudiante.juicioSegunda, 7);
 
     tbody.appendChild(fila);
+
+    // Si ya existe registro en esa fecha, marcarlo
+    if (estudiante.registros[fechaActual] === true) {
+      checkbox.checked = true;
+    }
+
+    // Cuando cambie el checkbox
+    checkbox.addEventListener("change", () => {
+      estudiante.registros[fechaActual] = checkbox.checked;
+    });
   });
+}
+
+function formatearFecha(fechaString) {
+  // Separar manualmente año, mes y día
+  const [anio, mes, dia] = fechaString.split("-");
+
+  // Crear fecha en horario local
+  const fecha = new Date(anio, mes - 1, dia);
+
+  const opciones = {
+    weekday: "long",
+    day: "numeric",
+    month: "long"
+  };
+
+  let partes = fecha
+    .toLocaleDateString("es-ES", opciones)
+    .replace(",", "")
+    .split(" ");
+
+  // Capitalizar día
+  partes[0] = partes[0].charAt(0).toUpperCase() + partes[0].slice(1);
+
+  // Capitalizar mes
+  const ultimoIndice = partes.length - 1;
+  partes[ultimoIndice] =
+    partes[ultimoIndice].charAt(0).toUpperCase() +
+    partes[ultimoIndice].slice(1);
+
+  return partes.join(" ");
 }
 
 cargarEstudiantes();
@@ -126,7 +196,8 @@ cargarEstudiantes();
 const boton = document.getElementById("btn-lista");
 
 boton.addEventListener("click", () => {
-  document.querySelector("table").classList.toggle("modo-lista");
+  tabla.classList.toggle("modo-lista");
+  panelLista.classList.toggle("visible");
 
   if (document.querySelector("table").classList.contains("modo-lista")) {
     boton.textContent = "Ver reuniones";
@@ -134,3 +205,46 @@ boton.addEventListener("click", () => {
     boton.textContent = "Pasaje de Lista";
   }
 });
+
+function actualizarEncabezadoFecha() {
+  filaEncabezados.children[3].textContent =
+    `Pasaje de lista (${formatearFecha(fechaActual)})`;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  fechaActual = inputFecha.value;
+  actualizarEncabezadoFecha();
+  mostrarTabla();
+});
+
+inputFecha.addEventListener("change", () => {
+  fechaActual = inputFecha.value;
+  actualizarEncabezadoFecha();
+  mostrarTabla();
+});
+
+const btnGuardar = document.getElementById("btn-guardar");
+
+btnGuardar.addEventListener("click", () => {
+  localStorage.setItem("estudiantes", JSON.stringify(estudiantes));
+  mostrarTabla();
+});
+
+const panelLista = document.getElementById("panel-lista");
+
+function guardarAsistencia(btnGuardar) {
+  const contenidoOriginal = btnGuardar.innerHTML;
+
+  btnGuardar.innerHTML = "Asistencias actualizadas ✓";
+  btnGuardar.style.backgroundColor = "rgba(0, 161, 0, 0.45)";
+  btnGuardar.style.fontWeight = "bolder";
+  btnGuardar.style.transform = "scale(1.05)";
+  btnGuardar.style.boxShadow = "0 4px 12px rgba(0,0,0,0.2)";
+
+  setTimeout(() => {
+    btnGuardar.innerHTML = "Guardar asistencia";
+    btnGuardar.style.backgroundColor = "rgba(255,255,255,0.15)";
+    btnGuardar.style.transform = "scale(1)";
+    btnGuardar.style.boxShadow = "none";
+  }, 3000);
+}

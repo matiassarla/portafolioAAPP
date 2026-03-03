@@ -1,149 +1,194 @@
 [
     {
+        "id": 1,
         "foto": "images/juanPerez.jpg",
         "nombres": "Juan",
         "apellidos": "Pérez",
-        "asistencias": 5,
+        "registros": {
+            
+        },
         "primeraReunion": "Sí",
         "juicioPrimera": "Bueno",
         "segundaReunion": "No",
         "juicioSegunda": "Regular"
     },
     {
+        "id": 2,
         "foto": "images/mariaGomez.jpg",
         "nombres": "María",
         "apellidos": "Gómez",
-        "asistencias": 0,
+        "registros": {
+            
+        },
         "primeraReunion": "No",
         "juicioPrimera": "Regular",
         "segundaReunion": "Sí",
         "juicioSegunda": "Bueno"
     },
     {
+        "id": 3,
         "foto": "images/carlosRodriguez.jpg",
         "nombres": "Carlos",
         "apellidos": "Rodríguez",
-        "asistencias": 3,
+        "registros": {
+            
+        },
         "primeraReunion": "Sí",
         "juicioPrimera": "Regular",
         "segundaReunion": "Sí",
         "juicioSegunda": "Regular"
     },
     {
+        "id": 4,
         "foto": "images/juanPerez.jpg",
         "nombres": "Juan",
         "apellidos": "Pérez",
-        "asistencias": 5,
+        "registros": {
+            
+        },
         "primeraReunion": "Sí",
         "juicioPrimera": "Bueno",
         "segundaReunion": "No",
         "juicioSegunda": "Regular"
     },
     {
+        "id": 5,
         "foto": "images/mariaGomez.jpg",
         "nombres": "María",
         "apellidos": "Gómez",
-        "asistencias": 2,
+        "registros": {
+            
+        },
         "primeraReunion": "No",
         "juicioPrimera": "Regular",
         "segundaReunion": "Sí",
         "juicioSegunda": "Bueno"
     },
     {
+        "id": 6,
         "foto": "images/carlosRodriguez.jpg",
         "nombres": "Carlos",
         "apellidos": "Rodríguez",
-        "asistencias": 3,
+        "registros": {
+            
+        },
         "primeraReunion": "Sí",
         "juicioPrimera": "Regular",
         "segundaReunion": "Sí",
         "juicioSegunda": "Regular"
     },
     {
+        "id": 7,
         "foto": "images/juanPerez.jpg",
         "nombres": "Juan",
         "apellidos": "Pérez",
-        "asistencias": 5,
+        "registros": {
+            
+        },
         "primeraReunion": "Sí",
         "juicioPrimera": "Bueno",
         "segundaReunion": "No",
         "juicioSegunda": "Regular"
     },
     {
+        "id": 8,
         "foto": "images/mariaGomez.jpg",
         "nombres": "María",
         "apellidos": "Gómez",
-        "asistencias": 4,
+        "registros": {
+            
+        },
         "primeraReunion": "No",
         "juicioPrimera": "Regular",
         "segundaReunion": "Sí",
         "juicioSegunda": "Bueno"
     },
     {
+        "id": 9,
         "foto": "images/carlosRodriguez.jpg",
         "nombres": "Carlos",
         "apellidos": "Rodríguez",
-        "asistencias": 3,
+        "registros": {
+            
+        },
         "primeraReunion": "Sí",
         "juicioPrimera": "Regular",
         "segundaReunion": "Sí",
         "juicioSegunda": "Regular"
     },
     {
+        "id": 10,
         "foto": "images/juanPerez.jpg",
         "nombres": "Juan",
         "apellidos": "Pérez",
-        "asistencias": 5,
+        "registros": {
+            
+        },
         "primeraReunion": "Sí",
         "juicioPrimera": "Bueno",
         "segundaReunion": "No",
         "juicioSegunda": "Regular"
     },
     {
+        "id": 11,
         "foto": "images/mariaGomez.jpg",
         "nombres": "María",
         "apellidos": "Gómez",
-        "asistencias": 4,
+        "registros": {
+            
+        },
         "primeraReunion": "No",
         "juicioPrimera": "Regular",
         "segundaReunion": "Sí",
         "juicioSegunda": "Bueno"
     },
     {
+        "id": 12,
         "foto": "images/carlosRodriguez.jpg",
         "nombres": "Carlos",
         "apellidos": "Rodríguez",
-        "asistencias": 3,
+        "registros": {
+            
+        },
         "primeraReunion": "Sí",
         "juicioPrimera": "Regular",
         "segundaReunion": "Sí",
         "juicioSegunda": "Regular"
     },
     {
+        "id": 13,
         "foto": "images/juanPerez.jpg",
         "nombres": "Juan",
         "apellidos": "Pérez",
-        "asistencias": 5,
+        "registros": {
+            
+        },
         "primeraReunion": "Sí",
         "juicioPrimera": "Bueno",
         "segundaReunion": "No",
         "juicioSegunda": "Regular"
     },
     {
+        "id": 14,
         "foto": "images/mariaGomez.jpg",
         "nombres": "María",
         "apellidos": "Gómez",
-        "asistencias": 4,
+        "registros": {
+            
+        },
         "primeraReunion": "No",
         "juicioPrimera": "Regular",
         "segundaReunion": "Sí",
         "juicioSegunda": "Bueno"
     },
     {
+        "id": 15,
         "foto": "images/carlosRodriguez.jpg",
         "nombres": "Carlos",
         "apellidos": "Rodríguez",
-        "asistencias": 3,
+        "registros": {
+            
+        },
         "primeraReunion": "Sí",
         "juicioPrimera": "Regular",
         "segundaReunion": "Sí",
