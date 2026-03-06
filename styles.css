@@ -16,12 +16,39 @@ body {
     font-size: 14px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: rgba(0, 0, 0, 0.3);
+
+    display: flex;
+    align-items: center;
+}
+
+.header .logoAAPP {
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 5px;
+    padding-bottom: 5px;
 }
 
 .header div {
-    display: inline-block;
+    /* display: inline-block; */
+    vertical-align: top;
+    padding: 0px;
+}
+
+.horarios{
+    display:block;
+    margin-top:3px;
+}
+
+.logoAAPP{
+    display:inline-block;
     vertical-align: middle;
-    padding-right: 15px;
+    padding-right: 5px;
+}
+
+.infoHeader{
+    display:inline-block;
+    vertical-align: top;
+    width: calc(100% - 150px);
 }
 
 img,
@@ -122,9 +149,9 @@ button {
     margin-right: 0;
 }
 
-#calificaciones:active {
+.pestanas a:active {
     background-color: rgba(64, 10, 212, 0.747);
-    font-size: 20px;
+    /* font-size: 20px; */
 }
 
 #contenedorTabla {
@@ -155,13 +182,39 @@ button {
     font-size: 14px;
     text-align: center;
     font-weight: normal;
-    padding: 15px;
+    padding: 5px;
     border: 2px solid white;
 }
 
 .tabla-estudiantes tbody tr {
     height: 80px;
     vertical-align: middle;
+}
+
+td[contenteditable="true"]:focus {
+  outline: 2px solid white;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.editable {
+  position: relative;
+}
+
+.editable::after {
+  content: "✏️";
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.editable:hover::after {
+  opacity: 1;
+}
+
+.editable:focus::after{
+    opacity: 0;
 }
 
 .tabla-estudiantes th:first-child,
@@ -174,26 +227,26 @@ button {
 
 .tabla-estudiantes th:nth-child(2),
 .tabla-estudiantes td:nth-child(2),
-.tabla-estudiantes th:nth-child(4),
-.tabla-estudiantes td:nth-child(4) {
+.tabla-estudiantes th:nth-child(3),
+.tabla-estudiantes td:nth-child(3) {
     width: 300px;
     text-align: center;
 }
 
-.tabla-estudiantes th:nth-child(3),
-.tabla-estudiantes td:nth-child(3) {
+.tabla-estudiantes th:nth-child(4),
+.tabla-estudiantes td:nth-child(4) {
     width: 150px;
     text-align: center;
 }
 
 /* Ocultar columna 4 por defecto */
-.tabla-estudiantes th:nth-child(4),
-.tabla-estudiantes td:nth-child(4) {
+.tabla-estudiantes th:nth-child(3),
+.tabla-estudiantes td:nth-child(3) {
     display: none;
 }
 
-.modo-lista th:nth-child(4),
-.modo-lista td:nth-child(4) {
+.modo-lista th:nth-child(3),
+.modo-lista td:nth-child(3) {
     display: table-cell;
 }
 
@@ -206,6 +259,25 @@ button {
 .modo-lista th:nth-child(n+5),
 .modo-lista td:nth-child(n+5) {
     display: none;
+}
+
+.estado-asistencia {
+  font-size: 26px;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.15s ease;
+}
+
+.estado-asistencia:hover {
+  transform: scale(1.25);
+}
+
+.asistio {
+  color: #04a81f;
+}
+
+.no-asistio {
+  color: #ff1744;
 }
 
 .foto-estudiante {
@@ -273,12 +345,33 @@ input[type="checkbox"] {
 
 @media (max-width: 1025px) {
     .header {
-        padding: 10px;
+        padding: 8px;
         font-size: 12px;
     }
 
     .grupo {
-        font-size: 14px;
+        font-size: 13px;
+        width: 50px;
+    }
+
+    .verGrupos img {
+    right: 8px;
+    top: 8px;
+    height: 30px;
+    width: 24px;
+}
+
+    .tabla-estudiantes {
+        margin: 0 15px;
+        width: calc(100% - 30px);
+    }
+
+    .tabla-estudiantes th:nth-child(2),
+    .tabla-estudiantes td:nth-child(2),
+    .tabla-estudiantes th:nth-child(3),
+    .tabla-estudiantes td:nth-child(3) {
+        width: 150px;
+        text-align: center;
     }
 
     .tabla-estudiantes {
@@ -310,12 +403,13 @@ input[type="checkbox"] {
     }
 
     .header div {
-        display: block;
+        display: inline;
         padding-right: 0;
     }
 
-    .header div {
-        padding-right: 0px;
+    .header.grupo {
+        width: 100px;
+        font-size: 11px;
     }
 
     .logoAAPP img,

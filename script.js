@@ -69,13 +69,13 @@ tabla.appendChild(tbody);
 const filaEncabezados = document.createElement("tr");
 thead.appendChild(filaEncabezados);
 
-const encabezados = ["Foto", "Nombre", "Asistencias", "Pasaje de lista", "Primera reunión", "Juicio de la primera reunión", "Segunda reunión", "Juicio de la segunda reunión"];
+const encabezados = ["Foto", "Nombre", "Pasaje de lista", "Asistencias", "Primera reunión", "Juicio de la primera reunión", "Segunda reunión", "Juicio de la segunda reunión"];
 
 encabezados.forEach((encabezado, index) => {
   const celda = document.createElement("th");
   celda.textContent = encabezado;
 
-  if (index === 3) {
+  if (index === 2) {
     celda.classList.add("col-lista");
   }
 
@@ -91,7 +91,7 @@ function agregarCelda(fila, texto, indiceColumna) {
   celda.textContent = texto;
 
   // Columna 3 → Pasaje de lista
-  if (indiceColumna === 3) {
+  if (indiceColumna === 2) {
     celda.classList.add("col-lista");
   }
 
@@ -133,30 +133,68 @@ function mostrarTabla() {
 
     agregarImagen(fila, estudiante.foto);
     agregarCelda(fila, `${numero} - ${estudiante.apellidos}, ${estudiante.nombres}`, 1);
-    agregarCelda(fila, calcularAsistencias(estudiante), 2);
+
     const celdaLista = document.createElement("td");
     celdaLista.classList.add("col-lista");
 
-    const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
+    const estado = document.createElement("span");
+    estado.classList.add("estado-asistencia");
 
-    celdaLista.appendChild(checkbox);
+    celdaLista.appendChild(estado);
     fila.appendChild(celdaLista);
+
+    agregarCelda(fila, calcularAsistencias(estudiante), 3);
     agregarCelda(fila, estudiante.primeraReunion, 4);
-    agregarCelda(fila, estudiante.juicioPrimera, 5);
+
+    const celdaJuicioPrimera = document.createElement("td");
+
+    celdaJuicioPrimera.textContent = estudiante.juicioPrimera;
+    celdaJuicioPrimera.contentEditable = true;
+    celdaJuicioPrimera.classList.add("editable");
+
+    celdaJuicioPrimera.addEventListener("blur", () => {
+      estudiante.juicioPrimera = celdaJuicioPrimera.textContent;
+      localStorage.setItem("estudiantes", JSON.stringify(estudiantes));
+    });
+
+    fila.appendChild(celdaJuicioPrimera);
+
     agregarCelda(fila, estudiante.segundaReunion, 6);
-    agregarCelda(fila, estudiante.juicioSegunda, 7);
+
+    const celdaJuicioSegunda = document.createElement("td");
+
+    celdaJuicioSegunda.textContent = estudiante.juicioPrimera;
+    celdaJuicioSegunda.contentEditable = true;
+    celdaJuicioSegunda.classList.add("editable");
+
+    celdaJuicioSegunda.addEventListener("blur", () => {
+      estudiante.juicioPrimera = celdaJuicioSegunda.textContent;
+      localStorage.setItem("estudiantes", JSON.stringify(estudiantes));
+    });
+
+    fila.appendChild(celdaJuicioSegunda);
 
     tbody.appendChild(fila);
 
     // Si ya existe registro en esa fecha, marcarlo
-    if (estudiante.registros[fechaActual] === true) {
-      checkbox.checked = true;
-    }
+    let asistio = estudiante.registros[fechaActual] === true;
 
-    // Cuando cambie el checkbox
-    checkbox.addEventListener("change", () => {
-      estudiante.registros[fechaActual] = checkbox.checked;
+    estado.textContent = asistio ? "✔" : "✖";
+    estado.title = asistio ? "Asistió" : "No asistió";
+    estado.classList.add(asistio ? "asistio" : "no-asistio");
+
+    estado.addEventListener("click", () => {
+
+      asistio = !asistio;
+
+      estudiante.registros[fechaActual] = asistio;
+
+      estado.textContent = asistio ? "✔" : "✖";
+      estado.title = asistio ? "Asistió" : "No asistió";
+
+      estado.classList.toggle("asistio");
+      estado.classList.toggle("no-asistio");
+
     });
   });
 }
@@ -207,7 +245,7 @@ boton.addEventListener("click", () => {
 });
 
 function actualizarEncabezadoFecha() {
-  filaEncabezados.children[3].textContent =
+  filaEncabezados.children[2].textContent =
     `Pasaje de lista (${formatearFecha(fechaActual)})`;
 }
 
