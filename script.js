@@ -275,7 +275,7 @@ inputFecha.addEventListener("change", () => {
 
 const panelLista = document.getElementById("panel-lista");
 
-async function guardarDatos(datos) {
+async function guardarEstudiantes(datos) {
   await fetch("/estudiantes", {
     method: "POST",
     headers: {
