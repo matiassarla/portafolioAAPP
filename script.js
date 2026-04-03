@@ -18,7 +18,7 @@ let estudiantes = [];
 
 async function cargarEstudiantes() {
   try {
-    const response = await fetch("http://localhost:3000/estudiantes");
+    const response = await fetch("https://backend-portafolioaapp.onrender.com/estudiantes");
     estudiantes = await response.json();
 
     estudiantes.sort((a, b) =>
@@ -255,7 +255,7 @@ inputFecha.addEventListener("change", () => {
 const panelLista = document.getElementById("panel-lista");
 
 async function guardarEstudiantes(estudiantes) {
-  await fetch("http://localhost:3000/estudiantes", {
+  await fetch("https://backend-portafolioaapp.onrender.com/estudiantes", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
