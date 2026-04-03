@@ -1,0 +1,225 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(90deg, rgba(0, 66, 219, 1) 0%, rgba(0, 155, 219, 1) 50%, rgba(0, 197, 219, 1) 100%);
+    width: 100%;
+}
+
+.header {
+    width: 100%;
+    padding: 15px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+/* .header .logoAAPP {
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 5px;
+    padding-bottom: 5px;
+} */
+
+.header div {
+    /* display: inline-block; */
+    vertical-align: top;
+    padding: 0px;
+}
+
+.horarios {
+    display: block;
+    margin-top: 3px;
+}
+
+.logoAAPP {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    padding-right: 15px;
+}
+
+.infoHeader {
+    display: inline-block;
+    vertical-align: top;
+}
+
+img,
+button {
+    vertical-align: middle;
+}
+
+#inicioHeader {
+    font-size: 32px;
+    font-weight: bolder;
+}
+
+.grupo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.logoAAPP img,
+.logoAAPP button {
+    height: 100px;
+    width: auto;
+    margin: 0;
+    padding-right: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.grupos {
+    width: 100%;
+    padding: 15px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.grupos a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: 0 10px;
+    /* transition: background-color 0.3s ease; */
+    box-sizing: border-box;
+    border: 1px solid white;
+    transition: 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+}
+
+.grupos a:hover {
+    background: linear-gradient(90deg, rgba(0, 66, 219, 0.5) 0%, rgba(0, 155, 219, 0.5) 50%, rgba(0, 197, 219, 0.5) 100%);
+    transform: scale(1.04);
+}
+
+.grupos a.activo {
+    background: linear-gradient(90deg, rgba(0, 66, 219, 0.5) 0%, rgba(0, 155, 219, 0.5) 50%, rgba(0, 197, 219, 0.5) 100%);
+    color: white;
+    font-weight: bold;
+    transform: scale(1.08);
+}
+
+.grupos a:first-child {
+    margin-left: 0;
+}
+
+.grupos a:last-child {
+    margin-right: 0;
+}
+
+.grupos a:active {
+    background-color: rgba(64, 10, 212, 0.747);
+    /* font-size: 20px; */
+}
+
+#panel-lista {
+    display: none;
+}
+
+#panel-lista.visible {
+    display: flex;
+    gap: 10px;
+    justify-self: center;
+    /* align-items: center; */
+    margin-bottom: 15px;
+}
+
+#panel-lista input[type="date"] {
+    padding: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.199);
+    box-sizing: border-box;
+    border: 1px solid white;
+    border-radius: 10px;
+    color: white;
+}
+
+#panel-lista button {
+    padding: 8px 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.199);
+    box-sizing: border-box;
+    border: 1px solid white;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.5);
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+@media (max-width: 1025px) {
+    .header {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .grupo {
+        font-size: 13px;
+        width: 50px;
+    }
+
+    .header div {
+        display: inline;
+        padding-right: 0;
+    }
+
+    .header.grupo {
+        width: 100px;
+        font-size: 11px;
+    }
+
+    .logoAAPP img,
+    .logoAAPP button {
+        height: 50px;
+        padding-bottom: 5px;
+    }
+
+    .grupos {
+        align-items: center;
+        display: flex;
+        overflow-x: auto;
+        padding: 5px;
+    }
+
+    .grupos a {
+        margin: 5px;
+        padding: 10px;
+    }
+
+    .grupos a:first-child {
+        margin: 5px;
+    }
+
+    .grupos a:last-child {
+        margin-right: 0;
+    }
+
+    .grupos a:active {
+        margin: 5px;
+        transform: none;
+    }
+}

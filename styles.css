@@ -34,19 +34,19 @@ body {
     padding: 0px;
 }
 
-.horarios{
-    display:block;
-    margin-top:3px;
+.horarios {
+    display: block;
+    margin-top: 3px;
 }
 
-.logoAAPP{
-    display:inline-block;
+.logoAAPP {
+    display: inline-block;
     vertical-align: middle;
     padding-right: 5px;
 }
 
-.infoHeader{
-    display:inline-block;
+.infoHeader {
+    display: inline-block;
     vertical-align: top;
     width: calc(100% - 150px);
 }
@@ -114,6 +114,8 @@ button {
     font-size: 14px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
 }
 
 .pestanas a {
@@ -151,7 +153,29 @@ button {
 
 .pestanas a:active {
     background-color: rgba(64, 10, 212, 0.747);
-    /* font-size: 20px; */
+}
+
+nav button {
+    color: white;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin: 0 10px;
+    box-sizing: border-box;
+    transition: 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+#btn-cargar {
+    margin-left: auto;
+}
+
+#btn-guardar {
+    margin-right: 0;
 }
 
 #contenedorTabla {
@@ -187,33 +211,33 @@ button {
 }
 
 .tabla-estudiantes tbody tr {
-    height: 80px;
+    height: 97px;
     vertical-align: middle;
 }
 
 td[contenteditable="true"]:focus {
-  outline: 2px solid white;
-  background-color: rgba(0, 0, 0, 0.15);
+    outline: 2px solid white;
+    background-color: rgba(0, 0, 0, 0.15);
 }
 
 .editable {
-  position: relative;
+    position: relative;
 }
 
 .editable::after {
-  content: "✏️";
-  position: absolute;
-  right: 0px;
-  top: 0px;
-  opacity: 0;
-  transition: opacity 0.2s;
+    content: "✏️";
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    opacity: 0;
+    transition: opacity 0.2s;
 }
 
 .editable:hover::after {
-  opacity: 1;
+    opacity: 1;
 }
 
-.editable:focus::after{
+.editable:focus::after {
     opacity: 0;
 }
 
@@ -262,22 +286,41 @@ td[contenteditable="true"]:focus {
 }
 
 .estado-asistencia {
-  font-size: 26px;
-  cursor: pointer;
-  user-select: none;
-  transition: transform 0.15s ease;
+    font-size: 26px;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.15s ease;
+    display: inline-block;
 }
 
 .estado-asistencia:hover {
-  transform: scale(1.25);
+    transform: scale(1.25);
 }
 
 .asistio {
-  color: #04a81f;
+    color: #04a81f;
 }
 
 .no-asistio {
-  color: #ff1744;
+    color: #ff1744;
+}
+
+@keyframes popAsistencia {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.6);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pop {
+    animation: popAsistencia 0.25s ease;
 }
 
 .foto-estudiante {
@@ -337,10 +380,10 @@ input[type="checkbox"] {
 }
 
 #btn-guardar {
-  transition: 
-    background-color 0.4s ease,
-    transform 0.2s ease,
-    box-shadow 0.3s ease;
+    transition:
+        background-color 0.4s ease,
+        transform 0.2s ease,
+        box-shadow 0.3s ease;
 }
 
 @media (max-width: 1025px) {
@@ -355,11 +398,11 @@ input[type="checkbox"] {
     }
 
     .verGrupos img {
-    right: 8px;
-    top: 8px;
-    height: 30px;
-    width: 24px;
-}
+        right: 8px;
+        top: 8px;
+        height: 30px;
+        width: 24px;
+    }
 
     .tabla-estudiantes {
         margin: 0 15px;

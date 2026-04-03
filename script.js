@@ -18,21 +18,14 @@ let estudiantes = [];
 
 async function cargarEstudiantes() {
   try {
-    const datosGuardados = localStorage.getItem("estudiantes");
-
-    if (datosGuardados) {
-      estudiantes = JSON.parse(datosGuardados);
-    } else {
-      const response = await fetch("estudiantes.json");
-      estudiantes = await response.json();
-      localStorage.setItem("estudiantes", JSON.stringify(estudiantes));
-    }
+    const response = await fetch("http://localhost:3000/estudiantes");
+    estudiantes = await response.json();
 
     estudiantes.sort((a, b) =>
       a.apellidos.localeCompare(b.apellidos)
     );
 
-    iniciarApp(); // SOLO cuando ya cargó todo
+    iniciarApp();
   } catch (error) {
     console.error("Error cargando estudiantes:", error);
   }
@@ -103,10 +96,6 @@ function agregarCelda(fila, texto, indiceColumna) {
   fila.appendChild(celda);
 }
 
-estudiantes.forEach((estudiante, index) => {
-  estudiante.index = index; // Agregar el índice al objeto estudiante
-});
-
 function agregarImagen(fila, ruta) {
   const celda = document.createElement("td");
 
@@ -154,7 +143,7 @@ function mostrarTabla() {
 
     celdaJuicioPrimera.addEventListener("blur", () => {
       estudiante.juicioPrimera = celdaJuicioPrimera.textContent;
-      localStorage.setItem("estudiantes", JSON.stringify(estudiantes));
+      guardarEstudiantes(estudiantes);
     });
 
     fila.appendChild(celdaJuicioPrimera);
@@ -163,13 +152,13 @@ function mostrarTabla() {
 
     const celdaJuicioSegunda = document.createElement("td");
 
-    celdaJuicioSegunda.textContent = estudiante.juicioPrimera;
+    celdaJuicioSegunda.textContent = estudiante.juicioSegunda;
     celdaJuicioSegunda.contentEditable = true;
     celdaJuicioSegunda.classList.add("editable");
 
     celdaJuicioSegunda.addEventListener("blur", () => {
-      estudiante.juicioPrimera = celdaJuicioSegunda.textContent;
-      localStorage.setItem("estudiantes", JSON.stringify(estudiantes));
+      estudiante.juicioSegunda = celdaJuicioSegunda.textContent;
+      guardarEstudiantes(estudiantes);
     });
 
     fila.appendChild(celdaJuicioSegunda);
@@ -195,6 +184,13 @@ function mostrarTabla() {
       estado.classList.toggle("asistio");
       estado.classList.toggle("no-asistio");
 
+      estado.classList.add("pop");
+
+      setTimeout(() => {
+        estado.classList.remove("pop");
+      }, 250);
+
+      guardarEstudiantes(estudiantes);
     });
   });
 }
@@ -230,30 +226,25 @@ function formatearFecha(fechaString) {
 }
 
 cargarEstudiantes();
+actualizarEncabezadoFecha();
 
 const boton = document.getElementById("btn-lista");
 
-boton.addEventListener("click", () => {
-  tabla.classList.toggle("modo-lista");
-  panelLista.classList.toggle("visible");
+if (boton) {
+  boton.addEventListener("click", () => {
+    tabla.classList.toggle("modo-lista");
+    panelLista.classList.toggle("visible");
 
-  if (document.querySelector("table").classList.contains("modo-lista")) {
-    boton.textContent = "Ver reuniones";
-  } else {
-    boton.textContent = "Pasaje de Lista";
-  }
-});
+    boton.textContent = tabla.classList.contains("modo-lista")
+      ? "Ver reuniones"
+      : "Pasaje de Lista";
+  });
+}
 
 function actualizarEncabezadoFecha() {
   filaEncabezados.children[2].textContent =
     `Pasaje de lista (${formatearFecha(fechaActual)})`;
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  fechaActual = inputFecha.value;
-  actualizarEncabezadoFecha();
-  mostrarTabla();
-});
 
 inputFecha.addEventListener("change", () => {
   fechaActual = inputFecha.value;
@@ -261,28 +252,14 @@ inputFecha.addEventListener("change", () => {
   mostrarTabla();
 });
 
-const btnGuardar = document.getElementById("btn-guardar");
-
-btnGuardar.addEventListener("click", () => {
-  localStorage.setItem("estudiantes", JSON.stringify(estudiantes));
-  mostrarTabla();
-});
-
 const panelLista = document.getElementById("panel-lista");
 
-function guardarAsistencia(btnGuardar) {
-  const contenidoOriginal = btnGuardar.innerHTML;
-
-  btnGuardar.innerHTML = "Asistencias actualizadas ✓";
-  btnGuardar.style.backgroundColor = "rgba(0, 161, 0, 0.45)";
-  btnGuardar.style.fontWeight = "bolder";
-  btnGuardar.style.transform = "scale(1.05)";
-  btnGuardar.style.boxShadow = "0 4px 12px rgba(0,0,0,0.2)";
-
-  setTimeout(() => {
-    btnGuardar.innerHTML = "Guardar asistencia";
-    btnGuardar.style.backgroundColor = "rgba(255,255,255,0.15)";
-    btnGuardar.style.transform = "scale(1)";
-    btnGuardar.style.boxShadow = "none";
-  }, 3000);
+async function guardarEstudiantes(estudiantes) {
+  await fetch("http://localhost:3000/estudiantes", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(estudiantes)
+  });
 }
