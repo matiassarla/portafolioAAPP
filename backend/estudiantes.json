@@ -1,85 +1,201 @@
-[
-  {
-    "id": 2,
-    "foto": "images/santiagoAcosta.jpg",
-    "nombres": "Santiago",
-    "apellidos": "Acosta",
-    "registros": {
-      "2026-04-02": true
+{
+  "grupos": [
+    {
+      "nombre": "1º 1 - Matutino",
+      "estudiantes": [
+        {
+          "id": 2,
+          "foto": "images/santiagoAcosta.jpg",
+          "nombres": "Santiago",
+          "apellidos": "Acosta",
+          "registros": {
+            "2026-04-02": true
+          },
+          "primeraReunion": "No",
+          "juicioPrimera": "Estudiante que tiene actitudes negativas con sus compañeros.",
+          "segundaReunion": "Sí",
+          "juicioSegunda": "Bueno"
+        },
+        {
+          "id": 1,
+          "foto": "images/emilianoAlvarez.jpg",
+          "nombres": "Emiliano",
+          "apellidos": "Álvarez",
+          "registros": {},
+          "primeraReunion": "Sí",
+          "juicioPrimera": "Bueno",
+          "segundaReunion": "No",
+          "juicioSegunda": "Regular"
+        },
+        {
+          "id": 3,
+          "foto": "images/alexandraDeLosSantos.jpg",
+          "nombres": "Alexandra",
+          "apellidos": "De Los Santos",
+          "registros": {
+            "2026-04-02": true
+          },
+          "primeraReunion": "Sí",
+          "juicioPrimera": "Regular",
+          "segundaReunion": "Sí",
+          "juicioSegunda": "Regular"
+        },
+        {
+          "id": 4,
+          "foto": "images/siomaraEspana.jpg",
+          "nombres": "Siomara",
+          "apellidos": "España",
+          "registros": {
+            "2026-04-02": true
+          },
+          "primeraReunion": "Sí",
+          "juicioPrimera": "Regular",
+          "segundaReunion": "No",
+          "juicioSegunda": "Regular"
+        },
+        {
+          "id": 5,
+          "foto": "images/joseLauz.jpg",
+          "nombres": "José",
+          "apellidos": "Lauz",
+          "registros": {},
+          "primeraReunion": "No",
+          "juicioPrimera": "Regular",
+          "segundaReunion": "Sí",
+          "juicioSegunda": "Bueno"
+        },
+        {
+          "id": 6,
+          "foto": "images/bayronOlivera.jpg",
+          "nombres": "Bayron",
+          "apellidos": "Olivera",
+          "registros": {},
+          "primeraReunion": "Sí",
+          "juicioPrimera": "Regular",
+          "segundaReunion": "Sí",
+          "juicioSegunda": "Regular"
+        },
+        {
+          "id": 7,
+          "foto": "images/brunoProtto.jpg",
+          "nombres": "Bruno",
+          "apellidos": "Protto",
+          "registros": {},
+          "primeraReunion": "Sí",
+          "juicioPrimera": "Bueno",
+          "segundaReunion": "No",
+          "juicioSegunda": "Regular"
+        }
+      ]
     },
-    "primeraReunion": "No",
-    "juicioPrimera": "Estudiante que tiene actitudes negativas con sus compañeros.",
-    "segundaReunion": "Sí",
-    "juicioSegunda": "Bueno"
-  },
-  {
-    "id": 1,
-    "foto": "images/emilianoAlvarez.jpg",
-    "nombres": "Emiliano",
-    "apellidos": "Álvarez",
-    "registros": {},
-    "primeraReunion": "Sí",
-    "juicioPrimera": "Bueno",
-    "segundaReunion": "No",
-    "juicioSegunda": "Regular"
-  },
-  {
-    "id": 3,
-    "foto": "images/alexandraDeLosSantos.jpg",
-    "nombres": "Alexandra",
-    "apellidos": "De Los Santos",
-    "registros": {
-      "2026-04-02": true
-    },
-    "primeraReunion": "Sí",
-    "juicioPrimera": "Regular",
-    "segundaReunion": "Sí",
-    "juicioSegunda": "Regular"
-  },
-  {
-    "id": 4,
-    "foto": "images/siomaraEspana.jpg",
-    "nombres": "Siomara",
-    "apellidos": "España",
-    "registros": {
-      "2026-04-02": true
-    },
-    "primeraReunion": "Sí",
-    "juicioPrimera": "Regular",
-    "segundaReunion": "No",
-    "juicioSegunda": "Regular"
-  },
-  {
-    "id": 5,
-    "foto": "images/joseLauz.jpg",
-    "nombres": "José",
-    "apellidos": "Lauz",
-    "registros": {},
-    "primeraReunion": "No",
-    "juicioPrimera": "Regular",
-    "segundaReunion": "Sí",
-    "juicioSegunda": "Bueno"
-  },
-  {
-    "id": 6,
-    "foto": "images/bayronOlivera.jpg",
-    "nombres": "Bayron",
-    "apellidos": "Olivera",
-    "registros": {},
-    "primeraReunion": "Sí",
-    "juicioPrimera": "Regular",
-    "segundaReunion": "Sí",
-    "juicioSegunda": "Regular"
-  },
-  {
-    "id": 7,
-    "foto": "images/brunoProtto.jpg",
-    "nombres": "Bruno",
-    "apellidos": "Protto",
-    "registros": {},
-    "primeraReunion": "Sí",
-    "juicioPrimera": "Bueno",
-    "segundaReunion": "No",
-    "juicioSegunda": "Regular"
-  }
-]
+    {
+      "nombre": "1º 3 - Vespertino",
+      "estudiantes": [
+        {
+          "id": 8,
+          "foto": "images/joaquinAbad.jpg",
+          "nombres": "Joaquín",
+          "apellidos": "Abad",
+          "registros": {
+            "2026-04-02": true
+          },
+          "primeraReunion": "No",
+          "juicioPrimera": "Estudiante que tiene actitudes negativas con sus compañeros.",
+          "segundaReunion": "Sí",
+          "juicioSegunda": "Bueno"
+        },
+        {
+          "id": 9,
+          "foto": "images/vaironAcosta.jpg",
+          "nombres": "Vairon",
+          "apellidos": "Acosta",
+          "registros": {
+            "2026-04-02": true
+          },
+          "primeraReunion": "No",
+          "juicioPrimera": "Estudiante que tiene actitudes negativas con sus compañeros.",
+          "segundaReunion": "Sí",
+          "juicioSegunda": "Bueno"
+        },
+        {
+          "id": 10,
+          "foto": "images/brandonAlzamendy.jpg",
+          "nombres": "Brandon",
+          "apellidos": "Alzamendy",
+          "registros": {
+            "2026-04-02": true
+          },
+          "primeraReunion": "No",
+          "juicioPrimera": "Estudiante que tiene actitudes negativas con sus compañeros.",
+          "segundaReunion": "Sí",
+          "juicioSegunda": "Bueno"
+        },
+        {
+          "id": 11,
+          "foto": "images/alexandraGonzalez.jpg",
+          "nombres": "Alexandra",
+          "apellidos": "González",
+          "registros": {
+            "2026-04-02": true
+          },
+          "primeraReunion": "No",
+          "juicioPrimera": "Estudiante que tiene actitudes negativas con sus compañeros.",
+          "segundaReunion": "Sí",
+          "juicioSegunda": "Bueno"
+        },
+        {
+          "id": 12,
+          "foto": "images/lautaroLopez.jpg",
+          "nombres": "Lautaro",
+          "apellidos": "López",
+          "registros": {
+            "2026-04-02": true
+          },
+          "primeraReunion": "No",
+          "juicioPrimera": "Estudiante que tiene actitudes negativas con sus compañeros.",
+          "segundaReunion": "Sí",
+          "juicioSegunda": "Bueno"
+        },
+        {
+          "id": 13,
+          "foto": "images/thiagoMarquez.jpg",
+          "nombres": "Thiago",
+          "apellidos": "Márquez",
+          "registros": {
+            "2026-04-02": true
+          },
+          "primeraReunion": "No",
+          "juicioPrimera": "Estudiante que tiene actitudes negativas con sus compañeros.",
+          "segundaReunion": "Sí",
+          "juicioSegunda": "Bueno"
+        },
+        {
+          "id": 14,
+          "foto": "images/brianGonzalez.jpg",
+          "nombres": "Brian",
+          "apellidos": "González",
+          "registros": {
+            "2026-04-02": true
+          },
+          "primeraReunion": "No",
+          "juicioPrimera": "Estudiante que tiene actitudes negativas con sus compañeros.",
+          "segundaReunion": "Sí",
+          "juicioSegunda": "Bueno"
+        },
+        {
+          "id": 15,
+          "foto": "images/lautaroUmpierrez.jpg",
+          "nombres": "Lautaro",
+          "apellidos": "Umpiérrez",
+          "registros": {
+            "2026-04-02": true
+          },
+          "primeraReunion": "No",
+          "juicioPrimera": "Estudiante que tiene actitudes negativas con sus compañeros.",
+          "segundaReunion": "Sí",
+          "juicioSegunda": "Bueno"
+        }
+      ]
+    }
+  ]
+}

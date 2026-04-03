@@ -6,6 +6,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+const path = require("path");
+app.use(express.static(path.join(__dirname, "../")));
+
 // Ruta de prueba
 app.get("/", (req, res) => {
   res.send("Servidor funcionando 🚀");

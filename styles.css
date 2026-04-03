@@ -72,13 +72,85 @@ button {
     cursor: pointer;
 }
 
-.verGrupos img {
+.header {
+    position: relative;
+}
+
+.verGrupos {
     position: absolute;
     right: 15px;
     top: 15px;
-    height: 50px;
-    max-height: 35px;
+}
+
+.verGrupos button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.verGrupos img {
+    height: 35px;
     width: 28px;
+}
+
+/* CONTENEDOR DEL MENÚ */
+.menu-grupos {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+
+    min-width: 200px;
+    padding: 8px;
+
+    background: rgba(22, 22, 22, 0.75);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.2s ease;
+    z-index: 1000;
+}
+
+/* BOTONES */
+.menu-grupos button {
+    display: block;
+    width: 100%;
+
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+
+    background: none;
+    color: white;
+    text-align: left;
+    cursor: pointer;
+}
+
+/* HOVER */
+.menu-grupos button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* GRUPO ACTIVO */
+.menu-grupos button.grupo-activo {
+    background: #5197ffbe;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+/* OCULTAR CON ANIMACIÓN */
+.menu-grupos.oculto {
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+}
+
+/* OCULTAR COMPLETO (genérico) */
+.oculto {
+    display: none;
 }
 
 #btn-lista {

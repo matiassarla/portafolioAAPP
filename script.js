@@ -14,12 +14,21 @@ function calcularAsistencias(estudiante) {
     .length;
 }
 
+let grupos = [];
+let grupoActualIndex = 0;
 let estudiantes = [];
 
 async function cargarEstudiantes() {
   try {
-    const response = await fetch("https://backend-portafolioaapp.onrender.com/estudiantes");
-    estudiantes = await response.json();
+    const response = await fetch("/estudiantes");
+    const data = await response.json();
+
+    grupos = data.grupos;
+    crearMenuGrupos();
+    grupoActualIndex = 0;
+
+    estudiantes = grupos[grupoActualIndex].estudiantes;
+    actualizarTitulo();
 
     estudiantes.sort((a, b) =>
       a.apellidos.localeCompare(b.apellidos)
@@ -33,6 +42,18 @@ async function cargarEstudiantes() {
 
 function iniciarApp() {
   mostrarTabla();
+}
+
+function cambiarGrupo() {
+  grupoActualIndex++;
+
+  if (grupoActualIndex >= grupos.length) {
+    grupoActualIndex = 0;
+  }
+
+  estudiantes = grupos[grupoActualIndex].estudiantes;
+
+  mostrarTabla(); // solo vuelve a dibujar
 }
 
 const enlaces = document.querySelectorAll(".pestanas a");
@@ -143,7 +164,7 @@ function mostrarTabla() {
 
     celdaJuicioPrimera.addEventListener("blur", () => {
       estudiante.juicioPrimera = celdaJuicioPrimera.textContent;
-      guardarEstudiantes(estudiantes);
+      guardarEstudiantes(grupos);
     });
 
     fila.appendChild(celdaJuicioPrimera);
@@ -158,7 +179,7 @@ function mostrarTabla() {
 
     celdaJuicioSegunda.addEventListener("blur", () => {
       estudiante.juicioSegunda = celdaJuicioSegunda.textContent;
-      guardarEstudiantes(estudiantes);
+      guardarEstudiantes(grupos);
     });
 
     fila.appendChild(celdaJuicioSegunda);
@@ -190,7 +211,7 @@ function mostrarTabla() {
         estado.classList.remove("pop");
       }, 250);
 
-      guardarEstudiantes(estudiantes);
+      guardarEstudiantes(grupos);
     });
   });
 }
@@ -254,12 +275,59 @@ inputFecha.addEventListener("change", () => {
 
 const panelLista = document.getElementById("panel-lista");
 
-async function guardarEstudiantes(estudiantes) {
-  await fetch("https://backend-portafolioaapp.onrender.com/estudiantes", {
+async function guardarDatos(datos) {
+  await fetch("/estudiantes", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify(estudiantes)
+    body: JSON.stringify(datos)
   });
+}
+
+const btnGrupos = document.getElementById("btn-grupos");
+
+if (btnGrupos) {
+  btnGrupos.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const menu = document.getElementById("menu-grupos");
+
+    menu.classList.toggle("oculto");
+  });
+}
+
+function crearMenuGrupos() {
+  const menu = document.getElementById("menu-grupos");
+
+  menu.innerHTML = "";
+
+  grupos.forEach((grupo, index) => {
+    const btn = document.createElement("button");
+    if (index === grupoActualIndex) {
+      btn.classList.add("grupo-activo");
+    }
+    btn.textContent = grupo.nombre;
+
+    btn.addEventListener("click", () => {
+      grupoActualIndex = index;
+      estudiantes = grupos[index].estudiantes;
+
+      estudiantes.sort((a, b) =>
+        a.apellidos.localeCompare(b.apellidos)
+      );
+
+      mostrarTabla();
+      actualizarTitulo();
+      crearMenuGrupos();
+      menu.classList.add("oculto");
+    });
+
+    menu.appendChild(btn);
+  });
+}
+
+function actualizarTitulo() {
+  const nombreGrupo = grupos[grupoActualIndex].nombre;
+  document.title = `${nombreGrupo} - Portafolio AAPP`;
 }
