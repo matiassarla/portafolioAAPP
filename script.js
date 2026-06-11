@@ -20,7 +20,7 @@ let estudiantes = [];
 
 async function cargarEstudiantes() {
   try {
-    const response = await fetch("/estudiantes");
+    const response = await fetch("https://backend-portafolioaapp.onrender.com/estudiantes");
     const data = await response.json();
 
     grupos = data.grupos;
@@ -276,7 +276,7 @@ inputFecha.addEventListener("change", () => {
 const panelLista = document.getElementById("panel-lista");
 
 async function guardarEstudiantes(datos) {
-  await fetch("/estudiantes", {
+  await fetch("https://backend-portafolioaapp.onrender.com/estudiantes", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
