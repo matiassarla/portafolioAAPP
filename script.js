@@ -23,7 +23,7 @@ async function cargarEstudiantes() {
     const response = await fetch("https://backend-portafolioaapp.onrender.com/estudiantes");
     const data = await response.json();
 
-    grupos = data.grupos;
+    grupos = data;
     crearMenuGrupos();
     grupoActualIndex = 0;
 
